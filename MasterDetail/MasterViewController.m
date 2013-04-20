@@ -26,9 +26,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
-    self.navigationItem.title = @"永垂不朽的大詩人";
-    
+        
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
@@ -78,6 +76,8 @@
     return YES;
 }
 
+
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -86,6 +86,12 @@
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DetailViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"detail"];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 /*
@@ -112,5 +118,7 @@
         [[segue destinationViewController] setDetailItem:object];
     }
 }
+
+
 
 @end
