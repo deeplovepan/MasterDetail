@@ -48,4 +48,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (IBAction)popButtonPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 @end
