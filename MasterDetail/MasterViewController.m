@@ -70,6 +70,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
     NSDate *object = _objects[indexPath.row];
+    cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.textLabel.text = [object description];
     return cell;
 }
